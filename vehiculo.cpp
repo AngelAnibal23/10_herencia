@@ -116,13 +116,46 @@ void Camion::cambiarCarga(string carg){
 }
 
 int main(){ 
-	Automovil Au("A1B-234","Chevrolet","azul", 180.0, 4, 3); 
-	Camion cam("A1B-234","ZUZUKI","blanco-verde", 180.0 , "Platano");  
-	
-	Au.mostrarDatos();
-	cam.mostrarCamion();
-	
-	
-	
-	return 0; 
+	string placa, marca, color, cargaCamion;
+    float velocidad;
+    int puertas, pasajeros;
+    
+    cout<<"Ingrese los datos del Automovil:"<<endl;
+    cout<<"Numero de Placa: ";
+    cin>>placa;
+    cout<<"Marca: ";
+    cin>>marca;
+    cout<<"Color: ";
+    cin>>color;
+    cout<<"Velocimetro (km/h): ";
+    cin>> velocidad;
+    cout<<"Cantidad de Puertas: ";
+    cin>>puertas;
+    cout<<"Cantidad de Pasajeros: ";
+    cin>>pasajeros;
+
+    Automovil Au(placa, marca, color, velocidad, puertas, pasajeros);
+    
+    cout<<"\nIngrese los datos del Camion:"<<endl;
+    cout<< "Numero de Placa: ";
+    cin>>placa;
+    cout<<"Marca: ";
+    cin>>marca;
+    cout<<"Color: ";
+    cin>>color;
+    cout<<"Velocimetro (km/h): ";
+    cin>>velocidad;
+    cout<<"Carga: ";
+    cin.ignore(); 
+    getline(cin, cargaCamion);
+
+    Camion cam(placa, marca, color, velocidad, cargaCamion);
+    
+    cout<<"\nDatos del Automovil:"<<endl;
+    Au.mostrarAutomovil();
+
+    cout<<"\nDatos del Camion:"<<endl;
+    cam.mostrarCamion();
+    
+    return 0; 
 }
